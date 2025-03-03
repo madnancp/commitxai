@@ -1,7 +1,9 @@
 [project]
-name = "commitlex"
+name = "commitxai"
 version = "0.1.0"
-description = ""
+description = "A CLI tool that generates commit messages based on staged files using AI."
 readme = "README.md"
+authers = [{name="Adnan", email="etc.adnan@gmail.com"}]
 requires-python = ">=3.11"
+license = "MIT"
 dependencies = []
