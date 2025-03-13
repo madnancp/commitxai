@@ -22,6 +22,10 @@ uv venv
 source .venv/bin/activate  # On Windows, use `.venv\Scripts\activate`
 uv pip install -e .
 ```
+Run locally
+```bash
+python -m src.commitxai.cli
+```
 
 ### 3️⃣ Create a New Branch  
 Before making changes, create a feature branch:  

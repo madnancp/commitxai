@@ -3,7 +3,16 @@ name = "commitxai"
 version = "0.1.0"
 description = "A CLI tool that generates commit messages based on staged files using AI."
 readme = "README.md"
-authers = [{name="Adnan", email="etc.adnan@gmail.com"}]
+authors = [
+	{name="Adnan", email="etc.adnan@gmail.com"},
+	{name="Ilyas", email="Trilyas0@gmail.com"},
+]
 requires-python = ">=3.11"
-license = "MIT"
-dependencies = []
+license = {file = "LICENSE"}
+dependencies = [
+    "click>=8.1.8",
+    "requests>=2.32.3",
+]
+
+[project.scripts]
+commitxai = "commitxai.cli:main"
