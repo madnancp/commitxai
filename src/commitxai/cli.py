@@ -1,26 +1,23 @@
 import click
 import requests
-from commitxai.utils import is_git_repo, initialize_git
+from commitxai.utils import _check_git
 
 
 @click.command()
 @click.option("--generate", is_flag=True, help="Generate Random Message")
 def main(generate: bool):
 
-    if not is_git_repo():
-        click.echo("Not a git repository")
-        if click.confirm("Do you want to initialize a git repository?"):
-            if initialize_git():
-                click.echo("Git repository initialized")
-            else:
-                click.echo("Failed to initialize git repository")
+    if not _check_git():
         return
 
     if generate:
-        response = requests.get(
-            "https://icanhazdadjoke.com", headers={"Accept": "text/plain"}
-        )
-        click.echo(response.text)
+        try:
+            response = requests.get(
+                "https://icanhazdadjoke.com", headers={"Accept": "text/plain"}
+            )
+            click.echo(response.text)
+        except Exception as e:
+            click.echo(click.style("Please Check your network connection.", fg="red"))
     else:
         click.echo("Use --generate to get random joke.!")
 

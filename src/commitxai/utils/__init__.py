@@ -1,1 +1,1 @@
-from .common import is_git_repo, initialize_git
+from .git import _check_git
