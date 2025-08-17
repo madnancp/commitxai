@@ -1,16 +1,17 @@
 [project]
 name = "commitxai"
 version = "0.1.0"
-description = "A CLI tool that generates commit messages based on staged files using AI."
+description = "CLI tool that generates commit messages based on staged files using LLM"
 readme = "README.md"
 authors = [
 	{name="Adnan", email="etc.adnan@gmail.com"},
-	{name="Ilyas", email="Trilyas0@gmail.com"},
 ]
 requires-python = ">=3.11"
 license = {file = "LICENSE"}
 dependencies = [
     "click>=8.1.8",
+    "gitpython>=3.1.45",
+    "llama-cpp-python>=0.3.16",
     "requests>=2.32.3",
 ]
 
