@@ -47,8 +47,4 @@ def _check_git() -> bool:
         else:
             return False
 
-    if not _have_staged_changes():
-        click.echo(click.style("No staged changes", fg="red"))
-        return False
-
     return True
