@@ -3,6 +3,10 @@
 </div>
 
 <div align="center">
-    Automatic Conventional Commit message for codebases using quantized llm model.
+    Conventional Commit Message Generator, Powered by llm.
 </div>
+
+---
+
+👉 Contributors are welcome.
 
