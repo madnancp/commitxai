@@ -1,6 +1,5 @@
 import click
-import requests
-from commitxai.utils import _check_git
+from commitxai.utils import _check_git, download_n_store_model_on_cache
 
 
 @click.command()
@@ -12,14 +11,21 @@ def main(generate: bool):
 
     if generate:
         try:
-            response = requests.get(
-                "https://icanhazdadjoke.com", headers={"Accept": "text/plain"}
-            )
-            click.echo(response.text)
+            handle_model_selecting()
         except Exception as e:
-            click.echo(click.style("Please Check your network connection.", fg="red"))
+            click.echo(click.style("Something went wrong.", fg="red"))
     else:
         click.echo("Use --generate to get random joke.!")
+
+
+def handle_model_selecting() -> None:
+    from simple_term_menu import TerminalMenu
+
+    options = ["TheBloke/phi-2-GGUF", "TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF"]
+    menu = TerminalMenu(options, title="Choose which model you want to use")
+    selected_idx = menu.show()
+    print(f"selected idx : {selected_idx}")
+    download_n_store_model_on_cache(options[int(selected_idx)])
 
 
 if __name__ == "__main__":
